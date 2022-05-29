@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Enseignant index{% endblock %}
+
+{% block body %}
+<h2 style="text-align:center;font-family:Arial;">Liste des Enseignant</h2>
+
+    <table class="table" style="margin-top:50px;">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Matricule</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for enseignant in enseignants %}
+            <tr>
+                <td>{{ enseignant.id }}</td>
+                <td>{{ enseignant.matricule }}</td>
+                <td>{{ enseignant.nom }}</td>
+                <td>{{ enseignant.prenom }}</td>
+                <td>
+                    <button class="btn btn-info"> <a style="color:black;text-decoration:initial;" href="{{ path('app_enseignant_show', {'id': enseignant.id}) }}">show</a></button>
+                    <button class="btn btn-warning"><a style="color:black;text-decoration:initial;" href="{{ path('app_enseignant_edit', {'id': enseignant.id}) }}">edit</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="btn btn-primary" style="margin-left:550px;"><a style="color:black;text-decoration:initial;" href="{{ path('app_enseignant_new') }}">Create new</a></button>
+{% endblock %}

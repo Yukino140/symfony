@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiant index{% endblock %}
+
+{% block body %}
+    <h2 style="text-align:center;font-family:Arial;">Liste des Etudiant</h2>
+
+    <table class="table" style="margin-top:50px;">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nce</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etudiant in etudiants %}
+            <tr>
+                <td>{{ etudiant.id }}</td>
+                <td>{{ etudiant.nce }}</td>
+                <td>{{ etudiant.nom }}</td>
+                <td>{{ etudiant.prenom }}</td>
+                <td>
+                    <button class="btn btn-info"> <a style="color:black;text-decoration:initial;" href="{{ path('app_etudiant_show', {'id': etudiant.id}) }}">show</a></button>
+                    <button class="btn btn-warning"><a style="color:black;text-decoration:initial;" href="{{ path('app_etudiant_edit', {'id': etudiant.id}) }}">edit</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   <button class="btn btn-primary" style="margin-left:550px;"> <a style="color:black;text-decoration:initial;" href="{{ path('app_etudiant_new') }}">Create new</a></button>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Soutenance index{% endblock %}
+
+{% block body %}
+    <h2 style="text-align:center;">Liste des Soutenance</h2>
+
+    <table class="table" style="margin-top:30px;">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numjury</th>
+                <th>Date_soutenance</th>
+                <th>Note</th>
+                <th>Etduiant</th>
+                <th>Enseignant</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for soutenance in soutenances %}
+            <tr>
+                <td>{{ soutenance.id }}</td>
+                <td>{{ soutenance.numjury }}</td>
+                <td>{{ soutenance.dateSoutenance ? soutenance.dateSoutenance|date('Y-m-d') : '' }}</td>
+                
+                <td>{{ soutenance.note }}</td>
+                <td>{{ soutenance.etudiant}}</td>
+                <td>{{soutenance.enseignant }}</td>
+                <td>
+                    <button class="btn btn-info"> <a style="color:black;text-decoration:initial;" href="{{ path('app_soutenance_show', {'id': soutenance.id}) }}">show</a></button>
+                    <button class="btn btn-warning"><a style="color:black;text-decoration:initial;" href="{{ path('app_soutenance_edit', {'id': soutenance.id}) }}">edit</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="btn btn-primary" style="margin-left:600px;"><a style="color:black;text-decoration:none;" href="{{ path('app_soutenance_new') }}">Create new</a></button>
+{% endblock %}

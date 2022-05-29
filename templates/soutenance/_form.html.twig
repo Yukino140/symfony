@@ -1,0 +1,18 @@
+{%block body %}
+{{ form_start(form) }}
+<div style="margin-left:500px;">
+    {{ form_label(form.numjury, 'Num jury') }}
+        {{ form_widget(form.numjury, {'att':{'class':'form-group has-success'}}) }}<br/>
+        {{ form_label(form.date_soutenance, 'date soutenance') }}
+        {{ form_widget(form.date_soutenance, {'att':{'class':'form-group has-success'}}) }}<br/>
+        {{ form_label(form.note, 'Note') }}
+        {{ form_widget(form.note, {'att':{'class':'form-group has-success'}}) }}<br/>
+        {{form_label(form.etudiant, 'Etudiant')}}
+        {{ form_widget(form.etudiant, {'att':{'class':'form-group has-success'}})}}<br/>
+        {{form_label(form.enseignant, 'Enseignant')}}
+        {{ form_widget(form.enseignant, {'att':{'class':'form-group has-success'}})}}
+    </div>
+    {{ form_widget(form) }}
+    <button style="margin-top:50px;margin-left:525px;" class="btn btn-info">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+{% endblock %}

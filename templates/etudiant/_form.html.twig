@@ -1,0 +1,15 @@
+
+{% block body %}
+{{ form_start(form) }}
+<div style="margin-left:250px;">
+{{ form_label(form.nce, 'NCE etudiant') }}
+    {{ form_widget(form.nce, {'att':{'class':'form-group has-success'}}) }}
+    {{ form_label(form.nom, 'Nom') }}
+    {{ form_widget(form.nom, {'att':{'class':'form-group has-success'}}) }}
+    {{ form_label(form.prenom, 'Prenom') }}
+    {{ form_widget(form.prenom, {'att':{'class':'form-group has-success'}}) }}
+</div>
+    {{ form_widget(form) }}
+    <button style="margin-top:50px;margin-left:525px;" class="btn btn-info">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+{% endblock  %}

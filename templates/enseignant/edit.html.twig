@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Enseignant{% endblock %}
+
+{% block body %}
+    <h2 style="text-align:center;padding-bottom:50px;">Modifier un Enseignant</h2>
+
+    {{ include('enseignant/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <button class="btn btn-success" style="margin-left:450px;transform:translate(0px,2px);"><a style="color:black;text-decoration:none;" href="{{ path('app_enseignant_index') }}">back to list</a></button>
+
+    {{ include('enseignant/_delete_form.html.twig') }}
+{% endblock %}

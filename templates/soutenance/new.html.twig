@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Soutenance{% endblock %}
+
+{% block body %}
+    <h2 style="text-align:center;margin-bottom:50px;">Ajouter un nouveau Soutenance</h2>
+
+    {{ include('soutenance/_form.html.twig') }}
+
+    <a style="margin-left:600px;transform: translate(0px,-38px);" class="btn btn-success" href="{{ path('app_soutenance_index') }}">back to list</a>
+{% endblock %}
